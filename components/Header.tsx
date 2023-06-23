@@ -3,7 +3,8 @@
 import { useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
-import { HiHome } from "react-icons/hi";
+import { HiHome, HiSearch } from "react-icons/hi";
+import Button from "./Button";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -45,8 +46,30 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           <button className='rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition'>
             <HiHome size={20} className='text-black' />
           </button>
+          <button className='rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition'>
+            <HiSearch size={20} className='text-black' />
+          </button>
+        </div>
+
+        <div className='flex justify-between items-center gap-x-4'>
+          <>
+            <div>
+              <Button
+                onClick={() => {}}
+                className='bg-transparent text-neutral-300 font-medium'
+              >
+                Signup
+              </Button>
+            </div>
+            <div>
+              <Button onClick={() => {}} className='px-6 py-2 bg-white'>
+                Log In
+              </Button>
+            </div>
+          </>
         </div>
       </div>
+      {children}
     </div>
   );
 };
