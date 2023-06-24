@@ -1,12 +1,14 @@
-import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 import { Figtree } from "next/font/google";
+
+import Sidebar from "@/components/Sidebar";
+import SupabaseProvider from "@/providers/SupabaseProvider";
 
 const figtree = Figtree({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Spotify Clone",
-  description: "Listen to music",
+  description: "Listen to music!",
 };
 
 export default function RootLayout({
@@ -17,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={figtree.className}>
-        <Sidebar>{children}</Sidebar>
+        <SupabaseProvider>
+          <Sidebar>{children}</Sidebar>
+        </SupabaseProvider>
       </body>
     </html>
   );
